@@ -1,10 +1,6 @@
 import random
 
 class Cliente:
-    __dni: str
-    __nombre:str
-    __apellidos:str
-
     def __init__(self, dni, nombre, apellidos):
         self.__dni= dni
         self.__nombre = nombre
@@ -17,46 +13,31 @@ class Cliente:
         return self.__dni
 
 class Movimiento:
-    __concepto:str
-    __cantidad:float
-
-
     def __init__(self, concepto, cantidad):
         self.__concepto = concepto
         self.__cantidad = cantidad
-
 
     def get_cantidad(self):
         return self.__cantidad
 
 class Cuenta:
-    __numero:int
-    __titular:Cliente
-    __movimientos:list[Movimiento]
-
-
     def __init__(self, titular:Cliente):
         self.__titular = titular
         self.__numero = int("".join([str(random.randint(0, 9)) for _ in range(10)]))
         self.__saldo = 0
         self.__movimientos = []
 
-
     def get_saldo(self):
         return self.__saldo
-
 
     def get_titular(self):
         return self.__titular
 
-
     def get_numero(self):
         return self.__numero
 
-
     def get_saldo(self):
         return self.__saldo
-
 
     def set_movimiento(self, movimiento):
         self.__movimientos.append(movimiento)
